@@ -55,7 +55,7 @@ export default function Navbar() {
             >
               <ModeToggle />
             </motion.div>
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.5 }}
@@ -66,7 +66,7 @@ export default function Navbar() {
                   Resume
                 </a>
               </Button>
-            </motion.div>
+            </motion.div> */}
           </nav>
 
           <div className="flex items-center md:hidden space-x-4">
@@ -92,7 +92,7 @@ export default function Navbar() {
             transition={{ duration: 0.3 }}
             className="md:hidden bg-background/95 backdrop-blur-md"
           >
-            <div className="container mx-auto px-4 py-4">
+            {/* <div className="container mx-auto px-4 py-4">
               <nav className="flex flex-col space-y-4">
 
                 <motion.div
@@ -107,7 +107,7 @@ export default function Navbar() {
                   </Button>
                 </motion.div>
               </nav>
-            </div>
+            </div> */}
           </motion.div>
         )}
       </AnimatePresence>
