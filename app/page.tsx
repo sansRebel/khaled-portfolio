@@ -14,20 +14,69 @@ export default function Home() {
   // Project data with URLs
   const projects = [
     {
+      title: "NurMart",
+      description:
+        "A full-stack mobile e-commerce platform developed from the ground up for an F&B Company. Built using Flutter and integrated with Odoo backend services, payment gateways, delivery provider APIs, authentication systems, and scalable REST APIs. Also involved CI/CD workflows, deployment preparation, testing, and production troubleshooting.",
+      tags: [
+        "Flutter",
+        "Dart",
+        "Odoo",
+        "REST APIs",
+        "CI/CD",
+        "GitHub Actions",
+        "Payment Integration",
+        "Delivery APIs",
+      ],
+      imageUrl: "/NurMart.png",
+      url: "#",
+    },
+    {
       title: "NextEndeavour",
-      description: "An AI-powered web app that recommends personalized careers based on users' skills, interests, and experience. Built with a full-stack architecture and integrated with Dialogflow for intelligent suggestions.",
-      tags: ["Next.js", "TypeScript", "Tailwind", "DaisyUI" , "Node.js", "MongoDB", "Dialogflow"],
+      description:
+        "An AI-powered web application that recommends personalized career paths based on users' skills, interests, and experience. Built with a full-stack architecture and integrated with Dialogflow for intelligent conversational recommendations.",
+      tags: [
+        "Next.js",
+        "TypeScript",
+        "Tailwind",
+        "DaisyUI",
+        "Node.js",
+        "MongoDB",
+        "Dialogflow",
+      ],
       imageUrl: "/NextEndeavour.png",
-      url: "https://nextendeavor.vercel.app", // Replace with actual live link
+      url: "https://nextendeavor.vercel.app",
     },
     {
       title: "VerseVault",
-      description: "A full-stack blog platform where users can register, post, edit, and delete blogs with image uploads, likes, and comments. Includes user profile management and secure authentication.",
-      tags: ["Next.js", "TypeScript", "DaisyUI", "MongoDB", "Node.js", "Cloudinary"],
+      description:
+        "A full-stack blogging platform where users can create, edit, and manage blogs with image uploads, likes, comments, and secure authentication. Includes profile management and responsive UI design focused on user experience and scalability.",
+      tags: [
+        "Next.js",
+        "TypeScript",
+        "DaisyUI",
+        "MongoDB",
+        "Node.js",
+        "Cloudinary",
+      ],
       imageUrl: "/VerseVault.png",
-      url: "https://the-versevault.vercel.app", // Replace with actual live link
+      url: "https://the-versevault.vercel.app",
     },
-  ];
+    {
+      title: "PropertyGalla",
+      description:
+        "A cloud-based property management platform featuring user and admin systems, property listings, reporting functionality, image uploads, and feedback management. Built with scalable infrastructure and full-stack architecture principles.",
+      tags: [
+        "Next.js",
+        "TypeScript",
+        ".NET MVC",
+        "AWS EC2",
+        "RDS",
+        "PostgreSQL",
+      ],
+      imageUrl: "/PropertyGalla.png",
+      url: "#",
+    },
+  ]
   
 
   // Experience data
@@ -50,7 +99,7 @@ export default function Home() {
       degree: "Bachelors in Software Engineering",
       period: "2022 - 2025",
       description:
-      "Final-year Software Engineering student with a focus on full-stack web development and AI integration. Final Year Project: 'NextEndeavor' – a career recommendation system using NLP.",
+      "Frontend Focused Software Engineer with a focus on full-stack web development and AI integration. Final Year Project: 'NextEndeavor' – a career recommendation system using NLP.",
       // courses: ["Advanced Algorithms", "Machine Learning", "Software Architecture", "Cloud Computing"],
     },
 
@@ -132,32 +181,32 @@ export default function Home() {
               <div className="space-y-6">
                 <h3 className="text-2xl font-bold">Who am I?</h3>
                 <p className="text-muted-foreground">
-                  I'm a Full Stack Developer with expertise in building modern web applications. With a
-                  strong foundation in both frontend and backend technologies, I enjoy creating seamless digital experiences
-                  that solve real-world problems.
+                  I'm a frontend-focused Software Engineer with hands-on experience building scalable web and mobile applications across SaaS, e-commerce, and enterprise systems. I specialize in creating modern, responsive user experiences using technologies like React, Next.js, TypeScript, and Flutter, while also working across backend integrations, APIs, deployment workflows, and production systems. I enjoy building products that solve real business problems and thrive in fast-paced environments where adaptability, ownership, and continuous learning matter.
                 </p>
                 <h3 className="text-2xl font-bold pt-4">My Technical Skills</h3>
                 <div className="flex flex-wrap gap-2">
-                  <SkillBadge name="TypeScript" />
-                  <SkillBadge name="React" />
-                  <SkillBadge name="Next.js" />
-                  <SkillBadge name="Node.js" />
-                  <SkillBadge name="Express.js" />
-                  <SkillBadge name="Tailwind CSS" />
-                  <SkillBadge name="RESTful APIs" />
-                  <SkillBadge name="MongoDB" />
-                  <SkillBadge name="AWS" />
-                  <SkillBadge name="Version control with Git" />
+                  <SkillBadge name="React.js, Next.js, Vue.js, TypeScript, JavaScript (ES6+)" />
+                  <SkillBadge name="Tailwind CSS, UI Libraries" />
+                  <SkillBadge name="Jest" />
+                  <SkillBadge name="UI/UX Principles, System Design" />
+                  <SkillBadge name="Frontend Performance Optimization" />
+                  <SkillBadge name="Flutter, Dart" />
+                  <SkillBadge name="Node.js, Express.js, REST APIs" />
+                  <SkillBadge name="Postman, AWS, Linux Environment" />
+                  <SkillBadge name="MongoDB, PostgreSQL" />
+                  <SkillBadge name="Odoo Development & Customization" />
+                  <SkillBadge name="Debugging & Troubleshooting" />
+
                 </div>
                 <h3 className="text-2xl font-bold pt-4">My Characteristics</h3>
                 <div className="flex flex-wrap gap-2">
-                  <SkillBadge name="Willingness to Learn" />
+                  <SkillBadge name="Problem Solving" />
                   <SkillBadge name="Adaptability" />
                   <SkillBadge name="Communication" />
+                  <SkillBadge name="Fast Learner" />
+                  <SkillBadge name="Team Collaboration" />
+                  <SkillBadge name="Ownership Mentality" />
                   <SkillBadge name="Critical Thinking" />
-                  <SkillBadge name="Ambition" />
-                  <SkillBadge name="English Fluency" />
-                  <SkillBadge name="Resiliency" />
 
                 </div>
               </div>
@@ -226,7 +275,7 @@ export default function Home() {
               Have a project in mind or want to discuss potential opportunities? Feel free to reach out using any of the
               options below.
             </p>
-            <ContactOptions phone="+60145239468" email="khaledalsinafi101@gmail.com" whatsapp="+60145239468" />
+            <ContactOptions phone="+60129452506" email="khaledalsinafi101@gmail.com" whatsapp="+60129452506" />
           </div>
         </AnimatedSection>
       </section>
