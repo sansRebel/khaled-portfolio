@@ -19,6 +19,12 @@ const config = {
       },
     },
     extend: {
+      fontFamily: {
+        display: ["var(--font-display)", "sans-serif"],
+        sans: ["var(--font-body)", "sans-serif"],
+        pixel: ["var(--font-pixel)", "monospace"],
+        marker: ["var(--font-marker)", "cursive"],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -52,6 +58,14 @@ const config = {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
+        },
+        y2k: {
+          blue: "hsl(var(--y2k-blue))",
+          lime: "hsl(var(--y2k-lime))",
+          tangerine: "hsl(var(--y2k-tangerine))",
+          pink: "hsl(var(--y2k-pink))",
+          red: "hsl(var(--y2k-red))",
+          silver: "hsl(var(--y2k-silver))",
         },
       },
       borderRadius: {

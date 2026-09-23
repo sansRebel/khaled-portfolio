@@ -1,123 +1,116 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Calendar, Briefcase } from "lucide-react"
+import { ArrowUpRight } from "lucide-react"
+import CdDisc from "@/components/cd-disc"
+import OsWindow from "@/components/os-window"
+
+interface Bullet {
+  label: string
+  text: string
+}
+
+interface ExperienceLink {
+  label: string
+  href: string
+  gel: string
+}
 
 interface Experience {
   company: string
+  file: string
+  discLabel: string
   position: string
   period: string
-  description: string
+  location?: string
+  summary: string
+  bullets: Bullet[]
   technologies: string[]
+  links?: ExperienceLink[]
 }
 
-interface ExperienceTimelineProps {
-  experiences?: Experience[]
-}
-
-const defaultExperiences: Experience[] = [
-  {
-    company: "Nurmart",
-    position: "Contractor Software Engineer",
-    period: "2026 – Present",
-    description:
-      "Developed and customized Odoo ERP modules and business workflows for e-commerce operations, while independently building a full-stack mobile e-commerce application from the ground up using Flutter, Dart, Odoo backend services, REST APIs, payment integrations, delivery provider APIs, authentication flows, CI/CD pipelines, and production deployment workflows.",
-    technologies: [
-      "Odoo",
-      "Flutter",
-      "Dart",
-      "REST APIs",
-      "GitHub Actions",
-      "CI/CD",
-      "DevOps",
-      "Payment Integration",
-      "Delivery APIs",
-      "AWS",
-    ],
-  },
-  {
-    company: "RF Laiyon Interactive",
-    position: "Frontend Developer Intern",
-    period: "Apr 2024 – Sep 2024",
-    description:
-      "Worked in a professional production environment, contributing to national-scale platforms including eSPBT and Ihsan Madani. Built and maintained frontend features using React, TypeScript, Chakra UI, and REST API integrations while collaborating with backend developers, project managers, and agile development teams.",
-    technologies: [
-      "React",
-      "TypeScript",
-      "Chakra UI",
-      "REST APIs",
-      "Git",
-      "Postman",
-      "Agile",
-      "Frontend Development",
-    ],
-  },
-]
-
-export default function ExperienceTimeline({
-  experiences = defaultExperiences,
-}: ExperienceTimelineProps) {
+export default function ExperienceTimeline({ experiences }: { experiences: Experience[] }) {
   return (
-    <div className="relative">
-      {/* Vertical line */}
-      <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary/80 via-primary/50 to-primary/20 hidden md:block"></div>
-
+    <div className="space-y-14">
       {experiences.map((experience, index) => (
         <motion.div
-          key={index}
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: index * 0.1 }}
-          viewport={{ once: true, margin: "-50px" }}
-          className={`relative flex flex-col md:flex-row gap-8 mb-12 last:mb-0 ${
-            index % 2 === 0 ? "md:flex-row-reverse" : ""
-          }`}
+          key={experience.company}
+          initial={{ opacity: 0, y: 80, scale: 0.96 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ type: "spring", stiffness: 90, damping: 16 }}
+          className="group"
         >
-          {/* Timeline dot */}
-          <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 w-8 h-8 rounded-full bg-primary/20 border-2 border-primary items-center justify-center hidden md:flex">
-            <Briefcase className="h-4 w-4 text-primary" />
-          </div>
-
-          {/* Content */}
-          <div className="md:w-1/2 pl-10 md:pl-0 md:pr-12 md:text-right relative">
-            {/* Mobile dot */}
-            <div className="absolute left-0 top-0 w-6 h-6 rounded-full bg-primary/20 border-2 border-primary flex items-center justify-center md:hidden">
-              <Briefcase className="h-3 w-3 text-primary" />
+          <OsWindow title={experience.file} bodyClassName="grid gap-6 p-6 md:grid-cols-[150px_1fr] md:gap-8 md:p-8">
+            <div className="flex flex-col items-center gap-3">
+              <motion.div
+                initial={{ rotate: -120, x: -40, opacity: 0 }}
+                whileInView={{ rotate: 0, x: 0, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ type: "spring", stiffness: 60, damping: 12, delay: 0.2 }}
+                className="w-32 md:w-36"
+              >
+                <div className="transition-transform duration-1000 ease-out group-hover:rotate-[540deg]">
+                  <CdDisc label={experience.discLabel} />
+                </div>
+              </motion.div>
+              <span className="font-pixel text-[10px] uppercase text-muted-foreground">{experience.period}</span>
             </div>
 
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              className="bg-card rounded-lg p-6 shadow-md hover:shadow-lg transition-all duration-300 border border-border/50"
-            >
-              <h3 className="text-xl font-bold">{experience.position}</h3>
-              <h4 className="text-lg font-medium text-primary">
+            <div className="text-left">
+              <h3 className="font-display text-2xl uppercase text-chrome">{experience.position}</h3>
+              <p className="mt-1 font-marker text-xl text-y2k-tangerine">
                 {experience.company}
-              </h4>
-
-              <div className="flex items-center gap-1 text-sm text-muted-foreground mt-1 md:justify-end">
-                <Calendar className="h-3 w-3" />
-                <span>{experience.period}</span>
-              </div>
-
-              <p className="mt-4 text-muted-foreground">
-                {experience.description}
+                {experience.location && <span className="text-muted-foreground"> — {experience.location}</span>}
               </p>
 
-              <div className="flex flex-wrap gap-2 mt-4 md:justify-end">
-                {experience.technologies.map((tech) => (
-                  <span
-                    key={tech}
-                    className="px-2 py-1 bg-primary/10 text-primary text-xs rounded-full"
+              {experience.links && (
+                <div className="mt-4 flex flex-wrap gap-3">
+                  {experience.links.map((link) => (
+                    <motion.a
+                      key={link.href}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.06, y: -2 }}
+                      whileTap={{ scale: 0.95 }}
+                      className={`btn-gel ${link.gel} inline-flex h-8 items-center gap-1 px-4 font-pixel text-[10px] uppercase`}
+                    >
+                      {link.label} <ArrowUpRight className="h-3 w-3" />
+                    </motion.a>
+                  ))}
+                </div>
+              )}
+
+              <p className="mt-4 text-sm italic text-foreground/80">{experience.summary}</p>
+
+              <ol className="mt-4 space-y-2.5">
+                {experience.bullets.map((bullet, idx) => (
+                  <motion.li
+                    key={bullet.label}
+                    initial={{ opacity: 0, x: -14 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.35, delay: idx * 0.05 }}
+                    className="flex gap-3 text-sm text-muted-foreground"
                   >
+                    <span className="shrink-0 font-pixel text-y2k-lime">{String(idx + 1).padStart(2, "0")}</span>
+                    <span>
+                      <span className="font-semibold text-foreground">{bullet.label}.</span> {bullet.text}
+                    </span>
+                  </motion.li>
+                ))}
+              </ol>
+
+              <div className="mt-5 flex flex-wrap gap-2">
+                {experience.technologies.map((tech) => (
+                  <span key={tech} className="bevel-out bg-secondary px-2 py-0.5 font-pixel text-[10px] uppercase text-y2k-silver">
                     {tech}
                   </span>
                 ))}
               </div>
-            </motion.div>
-          </div>
-
-          {/* Empty space for alternating layout */}
-          <div className="hidden md:block md:w-1/2"></div>
+            </div>
+          </OsWindow>
         </motion.div>
       ))}
     </div>

@@ -10,90 +10,70 @@ interface ContactOptionsProps {
 }
 
 export default function ContactOptions({ phone, email, whatsapp }: ContactOptionsProps) {
-  const contactOptions = [
+  const tickets = [
     {
       title: "Call Me",
-      icon: <Phone className="h-8 w-8" />,
-      description: "Let's talk directly",
-      action: () => (window.location.href = `tel:${phone}`),
-      color: "from-emerald-500 to-teal-600",
+      detail: phone,
+      icon: Phone,
+      href: `tel:${phone.replace(/\s/g, "")}`,
+      stripe: "bg-y2k-red",
+      seat: "Row A · Seat 01",
+      tilt: -3,
     },
     {
       title: "Email Me",
-      icon: <Mail className="h-8 w-8" />,
-      description: "Send me a message",
-      action: () => (window.location.href = `mailto:${email}`),
-      color: "from-teal-500 to-cyan-600",
+      detail: email,
+      icon: Mail,
+      href: `mailto:${email}`,
+      stripe: "bg-[#1c64b8]",
+      seat: "Row A · Seat 02",
+      tilt: 1.5,
     },
     {
       title: "WhatsApp",
-      icon: <MessageCircle className="h-8 w-8" />,
-      description: "Chat with me",
-      action: () => (window.location.href = `https://wa.me/${whatsapp.replace(/[^0-9]/g, "")}`),
-      color: "from-cyan-500 to-blue-600",
+      detail: "Chat with me",
+      icon: MessageCircle,
+      href: `https://wa.me/${whatsapp.replace(/[^0-9]/g, "")}`,
+      stripe: "bg-[#3a9a1f]",
+      seat: "Row A · Seat 03",
+      tilt: -1.5,
     },
   ]
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  }
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: { duration: 0.5 },
-    },
-  }
-
   return (
-    <motion.div
-      className="grid md:grid-cols-3 gap-6"
-      variants={containerVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-50px" }}
-    >
-      {contactOptions.map((option, index) => (
-        <motion.div
-          key={index}
-          variants={itemVariants}
-          whileHover={{
-            scale: 1.05,
-            boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
-          }}
-          className="relative overflow-hidden rounded-xl bg-card shadow-lg cursor-pointer group"
-          onClick={option.action}
+    <div className="grid gap-8 md:grid-cols-3">
+      {tickets.map((t, i) => (
+        <motion.a
+          key={t.title}
+          href={t.href}
+          target={t.href.startsWith("http") ? "_blank" : undefined}
+          rel={t.href.startsWith("http") ? "noopener noreferrer" : undefined}
+          initial={{ opacity: 0, y: 60, rotate: t.tilt * 4 }}
+          whileInView={{ opacity: 1, y: 0, rotate: t.tilt }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ type: "spring", stiffness: 120, damping: 13, delay: i * 0.1 }}
+          whileHover={{ rotate: 0, y: -10, scale: 1.04 }}
+          whileTap={{ scale: 0.97 }}
+          className="ticket-paper ticket-notch relative block overflow-hidden rounded-md text-left shadow-[0_20px_40px_-12px_rgba(0,0,0,0.9)]"
         >
-          <div
-            className="absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"
-            style={{
-              backgroundImage: `linear-gradient(to bottom right, var(--${option.color.split(" ")[0].replace("from-", "")}), var(--${option.color.split(" ")[1].replace("to-", "")}))`,
-            }}
-          />
-          <div className="p-6 flex flex-col items-center text-center space-y-4 group-hover:text-white transition-colors duration-500">
-            <div className="p-3 rounded-full bg-primary/10 text-primary group-hover:bg-white/20 group-hover:text-white transition-colors duration-500">
-              {option.icon}
-            </div>
-            <h3 className="text-xl font-bold">{option.title}</h3>
-            <p className="text-muted-foreground group-hover:text-white/80 transition-colors duration-500">
-              {option.description}
-            </p>
-            <motion.div
-              className="w-12 h-1 bg-primary rounded-full group-hover:bg-white transition-colors duration-500"
-              initial={{ width: "3rem" }}
-              whileHover={{ width: "5rem" }}
-            />
+          <div className={`${t.stripe} flex items-center justify-between px-4 py-2 text-white`}>
+            <span className="font-pixel text-[10px] uppercase">Khaled Alsanafi · Live</span>
+            <t.icon className="h-4 w-4" />
           </div>
-        </motion.div>
+          <div className="px-5 pb-3 pt-4">
+            <h3 className="font-display text-lg uppercase">{t.title}</h3>
+            <p className="mt-1 truncate font-marker text-base text-[#1c64b8]">{t.detail}</p>
+          </div>
+          <div className="mx-4 border-t-2 border-dashed border-[#1b1b1b]/30" />
+          <div className="flex items-end justify-between px-5 pb-4 pt-3">
+            <div>
+              <p className="font-pixel text-[10px] uppercase">Admit One</p>
+              <p className="font-pixel text-[9px] uppercase text-[#1b1b1b]/60">{t.seat}</p>
+            </div>
+            <div className="barcode h-8 w-20" />
+          </div>
+        </motion.a>
       ))}
-    </motion.div>
+    </div>
   )
 }
