@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Khaled Alsanafi — Resume</title>
+<style>
+  @font-face { font-family: 'Inter'; font-weight: 400; src: url('node_modules/@fontsource/inter/files/inter-latin-400-normal.woff2') format('woff2'); }
+  @font-face { font-family: 'Inter'; font-weight: 500; src: url('node_modules/@fontsource/inter/files/inter-latin-500-normal.woff2') format('woff2'); }
+  @font-face { font-family: 'Inter'; font-weight: 600; src: url('node_modules/@fontsource/inter/files/inter-latin-600-normal.woff2') format('woff2'); }
+  @font-face { font-family: 'Inter'; font-weight: 700; src: url('node_modules/@fontsource/inter/files/inter-latin-700-normal.woff2') format('woff2'); }
+
+  :root {
+    --ink: #16211f;
+    --muted: #5b6b68;
+    --accent: #0f766e;
+    --header-bg: #0f2724;
+    --rule: #d7e0de;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', -apple-system, Arial, sans-serif;
+    color: var(--ink);
+    font-size: 8.6pt;
+    line-height: 1.33;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+
+  .header {
+    background: var(--header-bg);
+    color: #fff;
+    padding: 15px 40px 12px;
+  }
+  .header h1 { font-size: 23pt; font-weight: 700; margin: 0 0 3px; letter-spacing: -0.4px; }
+  .header .role { color: #6ee7d5; font-size: 10.4pt; font-weight: 500; margin-bottom: 9px; }
+  .header .contact { font-size: 8.5pt; color: #b7c7c4; display: flex; flex-wrap: wrap; gap: 0 16px; }
+  .header .contact a { color: #dbe7e5; }
+
+  .body { padding: 12px 40px 14px; }
+  section { margin-bottom: 9px; }
+  h2 {
+    font-size: 8.9pt; font-weight: 600; color: var(--accent);
+    margin: 0 0 7px; padding-bottom: 3px; border-bottom: 1px solid var(--rule);
+    letter-spacing: 0.1px;
+  }
+  p { margin: 0 0 6px; }
+  .lede { text-align: justify; }
+
+  .job { margin-bottom: 9px; }
+  .job:last-child { margin-bottom: 0; }
+  .job-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+  .job-title { font-size: 10.2pt; font-weight: 600; }
+  .job-title .at { font-weight: 400; color: var(--muted); }
+  .job-title .co { font-weight: 500; color: #24403c; }
+  .job-date { font-size: 8.4pt; color: var(--muted); white-space: nowrap; }
+  .job-sub { color: var(--muted); font-style: italic; margin: 1px 0 5px; }
+  .chip {
+    display: inline-block; font-size: 7.3pt; font-weight: 500; color: var(--accent);
+    border: 1px solid #b6d8d3; border-radius: 9px; padding: 0.5px 6px; margin-left: 4px;
+    vertical-align: 1.2px;
+  }
+
+  ul { margin: 0; padding: 0; list-style: none; }
+  li { position: relative; padding-left: 10px; margin-bottom: 2.4px; }
+  li::before {
+    content: ""; position: absolute; left: 2px; top: 5.2px;
+    width: 3.4px; height: 3.4px; border-radius: 50%; background: var(--accent);
+  }
+  li b { font-weight: 600; }
+
+  .proj { margin-bottom: 4.5px; }
+  .proj-head { font-weight: 600; }
+  .proj-head .stack { font-weight: 400; color: var(--muted); font-size: 8.5pt; margin-left: 6px; }
+  .proj-head .link { color: var(--accent); font-size: 8pt; font-weight: 500; margin-left: 5px; }
+
+  .cols { display: flex; gap: 26px; }
+  .cols .left { flex: 1 1 63%; }
+  .cols .right { flex: 1 1 37%; }
+  .skill-row { display: flex; gap: 10px; margin-bottom: 3.2px; }
+  .skill-label { color: var(--muted); flex: 0 0 106px; }
+  .skill-val { flex: 1; }
+
+  .edu { margin-bottom: 6px; }
+  .edu .deg { font-weight: 600; }
+  .edu .school { color: #24403c; }
+  .edu .when { color: var(--muted); font-size: 8.5pt; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Khaled Alsanafi</h1>
+  <div class="role">Software Engineer — Full-Stack, Mobile &amp; Platform</div>
+  <div class="contact">
+    <span>Kuala Lumpur, Malaysia</span>
+    <span>+60 12-945 2506</span>
+    <a href="mailto:khaledalsinafi101@gmail.com">khaledalsinafi101@gmail.com</a>
+    <a href="https://github.com/sansRebel">github.com/sansRebel</a>
+    <a href="https://www.linkedin.com/in/khaled-al-sanafi-0251232a0/">LinkedIn</a>
+    <a href="https://khaled-portfolio-lyart.vercel.app/">Portfolio</a>
+  </div>
+</div>
+
+<div class="body">
+
+  <section>
+    <h2>Profile</h2>
+    <p class="lede">Software engineer who takes products from architecture to production and owns every layer in between. Joined a
+      retail group as a web developer and, within nine months, designed, built and launched their mobile commerce
+      platform single-handedly — a Flutter app on iOS and Android, the API and ERP layer behind it, payment and
+      delivery integrations, and the CI/CD and Linux infrastructure it runs on. Previously shipped production features
+      on national government platforms inside a cross-functional agile team.</p>
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+
+    <div class="job">
+      <div class="job-head">
+        <div class="job-title">Software Engineer <span class="at">at</span> <span class="co">Deltagulf (Nurmart)</span>, Kuala Lumpur<a class="chip" href="https://apps.apple.com/my/app/nurmart/id6760921459">App Store</a><a class="chip" href="https://play.google.com/store/apps/details?id=com.deltagulf.nurmart">Google Play</a></div>
+        <div class="job-date">Jan 2026 – Present</div>
+      </div>
+      <div class="job-sub">Sole engineer on the company's mobile commerce platform, from first commit to live production.</div>
+      <ul>
+        <li><b>Launch and traction.</b> Took the app through App Store and Google Play review to launch across two
+          retail branches; <b>3,400 active users and 2,100 returning users in the first two weeks</b>, averaging
+          <b>16m 53s engagement per active user</b> and 2.5 engaged sessions per user.</li>
+        <li><b>Mobile, learned on the job.</b> Built the iOS and Android app from scratch in Flutter/Dart with no prior
+          mobile experience — accounts, catalog, search, cart, checkout, orders, addresses, promotions and loyalty.</li>
+        <li><b>Backend and ERP.</b> Designed the API layer between app and Odoo ERP serving <b>3,000+ products</b> with
+          multi-branch inventory, orders, promotions and loyalty; extended Odoo modules and workflows in Python so app
+          orders flow straight into inventory and fulfilment.</li>
+        <li><b>Integrations.</b> Connected Fiuu payments, Lalamove delivery, Google Maps/Places/Geocoding and Apple and
+          Google sign-in into one flow from search to doorstep.</li>
+        <li><b>Infrastructure and release.</b> Built GitHub Actions CI/CD, ran Linux server deployments, owned signing
+          and store submissions, and handled production incidents across app, backend and infrastructure.</li>
+        <li><b>Data-driven iteration.</b> Instrumented the app with Firebase Crashlytics and Google Analytics, using
+          crash and behaviour data to prioritise post-launch fixes.</li>
+        <li><b>Stakeholder delivery.</b> Translated retail, payment and delivery requirements from management into
+          shipped features, working directly with operations across both branches.</li>
+        <li><b>AI-assisted engineering.</b> Build with Claude Code and Cursor, routing between frontier and open-weight
+          models to balance output quality against cost, reviewing and testing every generated change before release.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <div class="job-title">Frontend Developer <span class="at">at</span> <span class="co">RF Laiyon Interactive</span>, Cyberjaya</div>
+        <div class="job-date">Apr 2024 – Sep 2024</div>
+      </div>
+      <div class="job-sub">Full-time engineer in a cross-functional product team building national government platforms used across Malaysia.</div>
+      <ul>
+        <li><b>National scale.</b> Delivered production features for eSPBT, the system Malaysian government schools use
+          to order textbooks nationwide, taking work from sprint ticket to release.</li>
+        <li><b>Public sector.</b> Built and maintained Ihsan Madani, a national platform giving citizens visibility into
+          social welfare programmes.</li>
+        <li><b>Component architecture.</b> Engineered reusable, accessible React and TypeScript components on Chakra UI,
+          wired to backend REST APIs and shared across product modules.</li>
+        <li><b>API contracts.</b> Defined and validated API contracts with backend engineers in Postman, catching
+          integration issues before they reached production.</li>
+        <li><b>Team delivery.</b> Full member of a cross-functional agile team across weekly sprints — planning,
+          stand-ups, peer code review and release.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Selected Projects</h2>
+    <div class="proj">
+      <div class="proj-head">NextEndeavour <span class="stack">Next.js, Node.js, Dialogflow</span><a class="link" href="https://nextendeavor.vercel.app">nextendeavor.vercel.app</a></div>
+      <div>NLP chatbot that maps a user's skills and interests to real career paths through custom Dialogflow intents.</div>
+    </div>
+    <div class="proj">
+      <div class="proj-head">VerseVault <span class="stack">Next.js, TypeScript, MongoDB, Cloudinary</span><a class="link" href="https://the-versevault.vercel.app">the-versevault.vercel.app</a></div>
+      <div>Blogging platform with authentication, post editing, image uploads, likes and comments over REST APIs.</div>
+    </div>
+  </section>
+
+  <div class="cols">
+    <div class="left">
+      <section>
+        <h2>Skills</h2>
+        <div class="skill-row"><div class="skill-label">Languages</div><div class="skill-val">TypeScript, JavaScript, Dart, Python, C#, SQL</div></div>
+        <div class="skill-row"><div class="skill-label">Frontend &amp; mobile</div><div class="skill-val">React, Next.js, Flutter, Tailwind CSS, Chakra UI</div></div>
+        <div class="skill-row"><div class="skill-label">Backend &amp; ERP</div><div class="skill-val">Node.js, Express.js, .NET MVC, REST APIs, OAuth, Odoo</div></div>
+        <div class="skill-row"><div class="skill-label">Data &amp; cloud</div><div class="skill-val">PostgreSQL, MongoDB, AWS (EC2, Elastic Beanstalk, RDS), Linux</div></div>
+        <div class="skill-row"><div class="skill-label">DevOps &amp; testing</div><div class="skill-val">GitHub Actions, CI/CD, Jest, Postman, Git</div></div>
+        <div class="skill-row"><div class="skill-label">Monitoring</div><div class="skill-val">Firebase Crashlytics, Google Analytics</div></div>
+        <div class="skill-row"><div class="skill-label">AI engineering</div><div class="skill-val">Claude Code, Cursor, frontier and open-weight LLMs, cost-aware model routing</div></div>
+      </section>
+    </div>
+    <div class="right">
+      <section>
+        <h2>Education</h2>
+        <div class="edu">
+          <div class="deg">MSc by Research, Software Engineering</div>
+          <div class="school">Multimedia University (MMU), Cyberjaya</div>
+          <div class="when">In progress</div>
+        </div>
+        <div class="edu">
+          <div class="deg">BSc (Hons) Software Engineering</div>
+          <div class="school">Asia Pacific University, Kuala Lumpur</div>
+          <div class="when">2022 – 2025</div>
+        </div>
+      </section>
+      <section>
+        <h2>Languages</h2>
+        <div>Arabic (native), English (fluent), Spanish (basic)</div>
+      </section>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
